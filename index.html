@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiscan | SOPA - Transforme a Gestão do seu Negócio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd; /* Azul vibrante para CTAs e destaques */
+            --dark-blue: #0a58ca; /* Azul mais escuro para hover */
+            --text-color: #212529; /* Preto suave para texto */
+            --text-light: #6c757d; /* Cinza para subtítulos e texto secundário */
+            --bg-light: #f8f9fa;   /* Cinza muito claro para fundos de seção */
+            --white: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+        /* --- Reset Básico e Estilos Globais --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+        }
+
+        .button:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        /* --- Header --- */
+        .main-header {
+            background-color: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+        }
+
+        /* --- Seção Herói --- */
+        .hero {
+            background-color: var(--bg-light);
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        /* --- Seção de Problemas/Estatísticas --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-item h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- Seção Mentora --- */
+        #mentora {
+            background-color: var(--bg-light);
+        }
+
+        .mentor-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .mentor-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 50%;
+            border: 10px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mentor-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- Seção Plano/Oferta --- */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .plan-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .plan-card h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* --- Seção Para Quem É --- */
+         #para-quem-e {
+            background-color: var(--bg-light);
+        }
+        
+        .checklist {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .checklist li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>') no-repeat left center;
+            padding-left: 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        /* --- Seção Final CTA --- */
+        .final-cta {
+            background-color: var(--text-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .final-cta .section-title, .final-cta .section-subtitle {
+            color: var(--white);
+        }
+        
+        /* --- Footer --- */
+        .main-footer {
+            background-color: #1c1f23;
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .main-footer a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 992px) {
+            .stats-grid, .plan-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .mentor-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .mentor-image {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+
+            .stats-grid, .plan-grid, .checklist {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Fiscan | SOPA</div>
+            <a href="#cta-final" class="button">Quero a Mentoria</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="container">
+                <h1>A metodologia prática que pode te levar das dívidas ao lucro em poucos meses.</h1>
+                <p>Uma solução exclusiva para pequenos e médios empreendedores que vai contra tudo que te ensinaram sobre finanças e negócios.</p>
+                <a href="#cta-final" class="button">Eu quero meu planejamento tributário</a>
+            </div>
+        </section>
+
+        <section id="estatisticas" class="section">
+            <div class="container">
+                <h2 class="section-title">A dura realidade do empreendedor</h2>
+                <p class="section-subtitle">Se você não tem uma organização financeira eficiente, seu negócio corre sérios riscos. Veja os dados:</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>70% das empresas</h3>
+                        <p>fecham nos primeiros 5 anos por falta de uma gestão financeira eficiente.</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>90% dos empreendedores</h3>
+                        <p>misturam as contas pessoais com as da empresa, criando um caos financeiro.</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>60% das empresas</h3>
+                        <p>não sabem exatamente qual é o seu lucro real, operando totalmente no escuro.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mentora" class="section">
+            <div class="container">
+                <div class="mentor-layout">
+                    <div class="mentor-image">
+                        <img src="https://via.placeholder.com/350" alt="Mentora Ivana Krutinsky">
+                    </div>
+                    <div class="mentor-text">
+                        <h3>"Mas como você sabe disso, Ivana?"</h3>
+                        <p><strong>Porque eu já estive no seu lugar.</strong> Eu estava desesperada. Investi tudo que tinha em um negócio onde eu não enxergava lucro nenhum! Pior, comprei mentorias e cursos caros que só sugaram meu dinheiro e não agregaram em NADA.</p>
+                        <p>Sozinha, no campo de batalha, errando e acertando, descobri um método que realmente funciona para qualquer pequena empresa. Um método que pode, literalmente, "SALVAR O SEU NEGÓCIO".</p>
+                        <p>Hoje, minha empresa já ajudou mais de 300 negócios a saírem do vermelho. Acredite: sua história tem solução.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="plano" class="section">
+            <div class="container">
+                 <h2 class="section-title">O Plano para o seu Lucro</h2>
+                 <p class="section-subtitle">Em apenas 1 mês, você terá um plano prático para alcançar resultados que pareciam impossíveis.</p>
+                 <div class="plan-grid">
+                     <div class="plan-card">
+                         <h3>Lucrar Mais</h3>
+                         <p>Descubra onde o seu dinheiro está indo e como otimizar seus custos para aumentar a margem de lucro real.</p>
+                     </div>
+                     <div class="plan-card">
+                         <h3>Ter Tempo Livre</h3>
+                         <p>Com as finanças organizadas, você terá paz de espírito e tempo de qualidade para sua família e amigos.</p>
+                     </div>
+                     <div class="plan-card">
+                         <h3>Caixa Cheio</h3>
+                         <p>Construa uma reserva de emergência e um caixa robusto para aproveitar oportunidades e superar imprevistos.</p>
+                     </div>
+                 </div>
+            </div>
+        </section>
+        
+        <section id="para-quem-e" class="section">
+            <div class="container">
+                <h2 class="section-title">Essa consultoria é para você que:</h2>
+                <div class="checklist">
+                    <li>Não sabe qual é o seu lucro de verdade.</li>
+                    <li>Não consegue tirar o pró-labore que gostaria.</li>
+                    <li>Está cansado de ganhar menos do que quando era CLT.</li>
+                    <li>Não tem um caixa que traz segurança e estabilidade.</li>
+                    <li>Quer tirar férias e deixar o negócio lucrando.</li>
+                    <li>Está acumulando dívidas e precisa sair do vermelho.</li>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta-final" class="section final-cta">
+            <div class="container">
+                <h2 class="section-title">Chega de trabalhar no escuro.</h2>
+                <p class="section-subtitle">Quero te convidar para uma reunião de diagnóstico, sem compromisso, para analisar seu negócio e te mostrar o caminho para o lucro. Toque no botão abaixo para agendar.</p>
+                <a href="#" class="button">Quero marcar minha reunião e ter minha análise!</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Fiscan | SOPA. Todos os direitos reservados.</p>
+            <p>Feito para ajudar pequenos e médios empreendedores a prosperarem.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
